@@ -12,8 +12,10 @@ if response.status_code == 200:
     # Convert the response content into JSON format
     json_data = response.json()
 
-    # Print the JSON data
-    print(json.dumps(json_data, indent=4))
+    # Select only the "main" part of the JSON response
+    main_data = json_data['main']
+
+    # Print the "main" part of the JSON data
+    print(json.dumps(main_data, indent=4))
 else:
     print("Failed to fetch data from the API:", response.status_code)
-     #Display an error 
