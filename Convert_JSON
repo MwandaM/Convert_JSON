@@ -1,0 +1,19 @@
+import requests
+import json
+
+# Define the API URL
+api_url = 'https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=1a1db4684b879e68d4df7a6a936e26e3'
+
+# Make a GET request to the API URL
+response = requests.get(api_url)
+
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Convert the response content into JSON format
+    json_data = response.json()
+
+    # Print the JSON data
+    print(json.dumps(json_data, indent=4))
+else:
+    print("Failed to fetch data from the API:", response.status_code)
+     #Display an error 
